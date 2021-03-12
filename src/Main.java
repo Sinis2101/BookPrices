@@ -4,8 +4,8 @@ import java.io.BufferedReader;
 
 public class Main {
 
-    private static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-    private static BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+    private static final BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    private static final BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
     public static String getBestPrices(int[] prices, int money) {
 
@@ -52,7 +52,6 @@ public class Main {
         return "Peter should buy books whose prices are " + price1 + " and " + price2 + "\n";
 
     }
-
     public static void main(String[] args) throws IOException {
 
         String line;
