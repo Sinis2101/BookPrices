@@ -1,14 +1,14 @@
 import java.io.*;
 import java.util.ArrayList;
-import java.util.Scanner;
+import java.io.BufferedReader;
 
 public class Main {
 
+    private static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    private static BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
-    public static void main(String[] args) throws IOException {
+    public static String getBestPrices(int[] prices, int money) {
 
-        int[] prices = {10, 2, 6, 8, 4};
-        int money = 10;
         boolean flag = true;
         int minDiff = 0;
         int price1 = 0;
@@ -45,12 +45,46 @@ public class Main {
 
                 }
 
-
             }
 
         }
 
-        System.out.println("Peter should buy books whose prices are " + price1 + " and " + price2);
+        return "Peter should buy books whose prices are " + price1 + " and " + price2 + "\n";
+
+    }
+
+    public static void main(String[] args) throws IOException {
+
+        String line;
+        int[] prices;
+
+        do{
+
+            line = br.readLine();
+            int books = Integer.parseInt(line);
+
+            prices = new int[books];
+
+            line = br.readLine();
+            String[] parts = line.split(" ");
+
+            for(int i = 0; i < parts.length; i++) {
+
+                prices[i] = Integer.parseInt(parts[i]);
+
+            }
+
+            line = br.readLine();
+            int money = Integer.parseInt(line);
+
+            bw.write(getBestPrices(prices, money));
+
+            line = br.readLine();
+
+        }while(line != null);
+
+        br.close();
+        bw.close();
 
     }
 
